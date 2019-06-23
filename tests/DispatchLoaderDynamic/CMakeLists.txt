@@ -16,19 +16,21 @@ cmake_minimum_required(VERSION 3.2)
 
 project(DispatchLoaderDynamic)
 
-set(HEADERS
-)
+if (CMAKE_SYSTEM_NAME MATCHES "Windows")
+  set(HEADERS
+  )
 
-set(SOURCES
-  DispatchLoaderDynamic.cpp
-)
+  set(SOURCES
+    DispatchLoaderDynamic.cpp
+  )
 
-source_group(headers FILES ${HEADERS})
-source_group(sources FILES ${SOURCES})
+  source_group(headers FILES ${HEADERS})
+  source_group(sources FILES ${SOURCES})
 
-add_executable(DispatchLoaderDynamic
-  ${HEADERS}
-  ${SOURCES}
-)
+  add_executable(DispatchLoaderDynamic
+    ${HEADERS}
+    ${SOURCES}
+  )
 
-set_target_properties(DispatchLoaderDynamic PROPERTIES FOLDER "Tests")
+  set_target_properties(DispatchLoaderDynamic PROPERTIES FOLDER "Tests")
+endif()

@@ -22,8 +22,6 @@ option (TESTS_BUILD_WITH_LOCAL_VULKAN_HPP OFF)
 
 if (CMAKE_SYSTEM_NAME MATCHES "Windows")
   add_definitions(-DNOMINMAX -DVK_USE_PLATFORM_WIN32_KHR)
-else()
-  error("unhandled platform !")
 endif()
 
 FILE (GLOB linkunits ${CMAKE_CURRENT_SOURCE_DIR}/*)
