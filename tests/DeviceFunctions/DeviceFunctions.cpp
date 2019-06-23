@@ -56,7 +56,7 @@ int main(int /*argc*/, char ** /*argv*/)
     std::vector<vk::UniqueHandle<vk::CommandBuffer, vk::DispatchLoaderDynamic>>::allocator_type dynamicVectorAllocator;
     std::vector<vk::UniqueHandle<vk::CommandBuffer, vk::DispatchLoaderDynamic>> dynamicCommandBuffers = device->allocateCommandBuffersUnique({}, dynamicVectorAllocator, vk::DispatchLoaderDynamic());
   }
-  catch (vk::SystemError err)
+  catch (vk::SystemError& err)
   {
     std::cout << "vk::SystemError: " << err.what() << std::endl;
     exit(-1);
