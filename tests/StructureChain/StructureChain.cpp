@@ -25,6 +25,7 @@ static char const* EngineName = "Vulkan.hpp";
 #pragma warning( disable : 4189 )
 #elif defined(__GNUC__)
 #pragma GCC diagnostic ignored "-Wunused-variable"
+#pragma GCC diagnostic ignored "-Wunused-but-set-variable"
 #else
 // unknow compiler... just ignore the warnings for yourselves ;)
 #endif
@@ -80,7 +81,7 @@ int main(int /*argc*/, char ** /*argv*/)
     using AllocatorType = std::vector<StructureChain>::allocator_type;
     auto qfd = pd.getQueueFamilyProperties2<StructureChain, AllocatorType>(vk::DispatchLoaderStatic());
   }
-  catch (vk::SystemError err)
+  catch (vk::SystemError& err)
   {
     std::cout << "vk::SystemError: " << err.what() << std::endl;
     exit(-1);
